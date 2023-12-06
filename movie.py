@@ -18,12 +18,11 @@ class SqlConnection(object):
             self.cursor = self.connection.cursor(dictionary=True)
         except Exception as e:
             self.connection.close()
-
-# Function to get the number of visitors for a given movie ID
+            
     def get_num_of_visitors(self,movie_id):
     
         try:
-        # Fetch the number of visitors for the given movie ID from the database
+        # Fetching the number of visitors for the given movie ID from the database
             query = "SELECT SUM(visits) FROM visitors WHERE movie_id = %s"
             self.cursor.execute(query, (movie_id,))
             result = self.cursor.fetchone()
@@ -32,7 +31,7 @@ class SqlConnection(object):
                 num_of_visitors = result[0]
                 return num_of_visitors
             else:
-                return 0  # Movie ID not found
+                return 0  
         
         except Exception as e:
             print(f'Error{e}')
