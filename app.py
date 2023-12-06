@@ -1,10 +1,7 @@
 from flask import Flask, request, jsonify
 from movie import *
 
-
 app = Flask(__name__)
-
-# Assume db_config is defined or imported correctly
 
 @app.route('/getvisitors', methods=['GET'])
 def get_visitors():
